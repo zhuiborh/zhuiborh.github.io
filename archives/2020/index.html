@@ -135,159 +135,20 @@ var _hmt = _hmt || [];
     <header>
         <!-- 标签这有且只能显示一个 -->
         
-        <a class="cat-link" href="/categories/Web%E6%8A%80%E6%9C%AF/">Web技术</a>
+        <a class="cat-link" href="/categories/Web%E5%AE%89%E5%85%A8/">Web安全</a>
         
         <!-- 文章标题 -->
         
     <h3 class="post-title">
-    	<a href="http://yoursite.com/2020/07/23/sql%E6%B3%A8%E5%85%A5/">
-    		sql注入
-    	</a>
-    </h3>
-
-    </header>
-    <p class="post-meta">
-        Jelon 发表于
-        <time datetime="2020-07-23T07:00:36.075Z">2020-07-23</time>
-        &nbsp;&nbsp;
-        <span class="post-tags">
-            标签：
-            
-        </span>
-    </p>
-
-    <div class="post-content">
-        <div class="post-excerpt">
-            
-                <p>我也是刚学习SQL注入，下面把我学习的一些知识做个整理，方便以后复习。</p>
-<h1 id="SQL注入"><a href="#SQL注入" class="headerlink" title="SQL注入"></a>SQL注入</h1><h2 id="SQL注入介绍"><a href="#SQL注入介绍" class="headerlink" title="SQL注入介绍"></a>SQL注入介绍</h2><p>SQL注入：SQL Injection在这种攻击方式中，恶意代码被插入查询字符中，然后将该字符传递到数据库服务器进行执行，根据数<br>返回的结果，获得某些数据并进一步攻击,甚至获取管理账号，密码，窃取或者篡系统数据</p>
-<h2 id="注入流程"><a href="#注入流程" class="headerlink" title="注入流程"></a>注入流程</h2><ul>
-<li>判断是否纯在注入</li>
-</ul>
-<ol>
-<li>可控参数的改变是否能影响页面显示结果</li>
-<li>输入的sql语句是否能报错-能通过数据库的报错,暴露出一些数据库语句</li>
-<li>输入sql语句能否不报错-我们的语句能够成功闭合</li>
-</ol>
-<ul>
-<li>判断什么类型的注入</li>
-</ul>
-<ol>
-<li>按照请求方式注入<ul>
-<li>GET型注入</li>
-<li>POST型注入</li>
-</ul>
-</li>
-<li>按照SQL数据类型分类<ul>
-<li>整型注入</li>
-<li>字符注入</li>
-</ul>
-</li>
-<li>其他数据类型<ul>
-<li>报错注入</li>
-<li>双注入</li>
-<li>时间盲注</li>
-<li>Cookie注入</li>
-<li>User-Angent注入/Referer注入</li>
-</ul>
-</li>
-</ol>
-<ul>
-<li>语句是否能够被恶意修改</li>
-<li>是否能够成功执行</li>
-<li>获取我们想要的数据<h2 id="按照SQLI-LABS靶机来做演示"><a href="#按照SQLI-LABS靶机来做演示" class="headerlink" title="按照SQLI-LABS靶机来做演示"></a>按照SQLI-LABS靶机来做演示</h2>下面我会用SQLI-LABS中的例子，介绍下面对不同类型的注入怎么去攻击和防御。<h3 id="GET型基于错误"><a href="#GET型基于错误" class="headerlink" title="GET型基于错误"></a>GET型基于错误</h3>首先判断是否存在注入<br>在url后面添加 <strong>?id=1</strong></li>
-</ul>
-<p><img src="/2020/07/23/sql%E6%B3%A8%E5%85%A5/1_url.png" alt="get注入"><br><img src="/2020/07/23/sql%E6%B3%A8%E5%85%A5/1_content.png" alt="get注入"></p>
-
-            
-            <p class="more">
-                <a href="http://yoursite.com/2020/07/23/sql%E6%B3%A8%E5%85%A5/">阅读剩下更多</a>
-            </p>
-        </div>
-        <div class="post-thumbnail" data-img="">
-            <a href="http://yoursite.com/2020/07/23/sql%E6%B3%A8%E5%85%A5/" title="sql注入">
-                
-                    <img class="thumbnail" src="/img/default.png" data-echo="/img/thumbnail/3.jpg" alt="默认配图" >
-                
-            </a>
-        </div>
-    </div>
-</article>
-
-    
-        <!-- 文章列表 item -->
-<article class="post">
-    <header>
-        <!-- 标签这有且只能显示一个 -->
-        
-            <a href="javascript: void(0);" class="cat">未分类</a>
-        
-        <!-- 文章标题 -->
-        
-    <h3 class="post-title">
-    	<a href="http://yoursite.com/2020/07/23/test-first/">
-    		test_first
-    	</a>
-    </h3>
-
-    </header>
-    <p class="post-meta">
-        Jelon 发表于
-        <time datetime="2020-07-22T23:48:56.000Z">2020-07-23</time>
-        &nbsp;&nbsp;
-        <span class="post-tags">
-            标签：
-            
-        </span>
-    </p>
-
-    <div class="post-content">
-        <div class="post-excerpt">
-            
-                <h1 id="hello"><a href="#hello" class="headerlink" title="hello"></a>hello</h1><ul>
-<li>第一</li>
-<li>第二</li>
-<li>第三<blockquote>
-<p>引用<br>引用</p>
-</blockquote>
-</li>
-</ul>
-
-            
-            <p class="more">
-                <a href="http://yoursite.com/2020/07/23/test-first/">阅读剩下更多</a>
-            </p>
-        </div>
-        <div class="post-thumbnail" data-img="">
-            <a href="http://yoursite.com/2020/07/23/test-first/" title="test_first">
-                
-                    <img class="thumbnail" src="/img/default.png" data-echo="/img/thumbnail/3.jpg" alt="默认配图" >
-                
-            </a>
-        </div>
-    </div>
-</article>
-
-    
-        <!-- 文章列表 item -->
-<article class="post">
-    <header>
-        <!-- 标签这有且只能显示一个 -->
-        
-            <a href="javascript: void(0);" class="cat">未分类</a>
-        
-        <!-- 文章标题 -->
-        
-    <h3 class="post-title">
-    	<a href="http://yoursite.com/2020/07/23/myql/">
-    		mysql
+    	<a href="https://zhuiborh.github.io/2020/07/23/sql%E6%B3%A8%E5%85%A5/">
+    		SQL注入
     	</a>
     </h3>
 
     </header>
     <p class="post-meta">
         zhuiborh 发表于
-        <time datetime="2020-07-22T16:00:00.000Z">2020-07-23</time>
+        <time datetime="2020-07-23T07:00:36.075Z">2020-07-23</time>
         &nbsp;&nbsp;
         <span class="post-tags">
             标签：
@@ -329,6 +190,7 @@ var _hmt = _hmt || [];
 <li>其他数据类型<ul>
 <li>报错注入</li>
 <li>双注入</li>
+<li>布尔盲注</li>
 <li>时间盲注</li>
 <li>Cookie注入</li>
 <li>User-Angent注入/Referer注入</li>
@@ -338,16 +200,134 @@ var _hmt = _hmt || [];
 <ul>
 <li>语句是否能够被恶意修改</li>
 <li>是否能够成功执行</li>
-<li>获取我们想要的数据<h2 id="按照SQLI-LABS靶机来做演示"><a href="#按照SQLI-LABS靶机来做演示" class="headerlink" title="按照SQLI-LABS靶机来做演示"></a>按照SQLI-LABS靶机来做演示</h2>下面我会用SQLI-LABS中的例子，介绍下面对不同类型的注入怎么去攻击和防御。<h3 id="GET型基于错误"><a href="#GET型基于错误" class="headerlink" title="GET型基于错误"></a>GET型基于错误</h3>首先判断是否存在注入</li>
+<li>获取我们想要的数据<h2 id="按照SQLI-LABS靶机来做演示"><a href="#按照SQLI-LABS靶机来做演示" class="headerlink" title="按照SQLI-LABS靶机来做演示"></a>按照SQLI-LABS靶机来做演示</h2>下面我会用SQLI-LABS中的例子，介绍下面对不同类型的注入怎么去攻击和防御。<h3 id="GET型基于错误"><a href="#GET型基于错误" class="headerlink" title="GET型基于错误"></a>GET型基于错误</h3></li>
 </ul>
+<ol>
+<li><p>首先判断是否存在注入<br>在url后面添加 <strong>?id=1</strong>    </p>
+<p><img src="/2020/07/23/sql%E6%B3%A8%E5%85%A5/image-20200723170238211.png" alt="image-20200723170238211"></p>
+</li>
+</ol>
+<p>​           <img src="/2020/07/23/sql%E6%B3%A8%E5%85%A5/image-20200723170251618.png" alt="image-20200723170251618">                </p>
+<p>​            内容正常显示,把id改成2 ，内容显示正常</p>
+<p>​         <img src="/2020/07/23/sql%E6%B3%A8%E5%85%A5/image-20200723165733457.png" alt="image-20200723165733457"></p>
+<p>​           <img src="/2020/07/23/sql%E6%B3%A8%E5%85%A5/image-20200723171739364.png" alt="image-20200723171739364"></p>
+<p>​            继续在id后面追加个单引号 <strong>‘</strong> ，显示出错</p>
+<p>​           <img src="/2020/07/23/sql%E6%B3%A8%E5%85%A5/image-20200723172018440.png" alt="image-20200723172018440">              </p>
+<p>​           <img src="/2020/07/23/sql%E6%B3%A8%E5%85%A5/image-20200723172030586.png" alt="image-20200723172030586" style="zoom: 50%;"></p>
+<p>​           继续在id后追加个注释符 <strong>–+</strong>，发现显示正常</p>
+<p>​           <img src="/2020/07/23/sql%E6%B3%A8%E5%85%A5/image-20200723172300255.png" alt="image-20200723172300255"></p>
+<p>​          <img src="/2020/07/23/sql%E6%B3%A8%E5%85%A5/image-20200723172317229.png" alt="image-20200723172317229"></p>
+<p>​          继续测试,在注释号前面追加 and 1=1，显示正常</p>
+<p>​          <img src="/2020/07/23/sql%E6%B3%A8%E5%85%A5/image-20200723172529535.png" alt="image-20200723172529535"></p>
+<p>​          <img src="/2020/07/23/sql%E6%B3%A8%E5%85%A5/image-20200723172542410.png" alt="image-20200723172542410"></p>
+<p>​          把1=1,换成1=2显示错误，可以判断存在注入</p>
+<p>​          <img src="/2020/07/23/sql%E6%B3%A8%E5%85%A5/image-20200723172722212.png" alt="image-20200723172722212"></p>
+<p>​          <img src="/2020/07/23/sql%E6%B3%A8%E5%85%A5/image-20200723172747446.png" alt="image-20200723172747446"></p>
+<ol start="2">
+<li><p>注入利用</p>
+<p>通过查询语句获取数据库信息，上面已经得出此注入可以使用union语句查询，首先判断当前数据库表中的字段数(列数)，以便后面查询。用order by 语句查询字段数。</p>
+<p><img src="/2020/07/23/sql%E6%B3%A8%E5%85%A5/image-20200723173621494.png" alt="image-20200723173621494"></p>
+<p><img src="/2020/07/23/sql%E6%B3%A8%E5%85%A5/image-20200723173704557.png" alt="image-20200723173704557"></p>
+<p>通过order by 测试只有3个字段，用union select 查询，注意前面的id值要设置个错误值，用database()查询当前的数据库名</p>
+<p><img src="/2020/07/23/sql%E6%B3%A8%E5%85%A5/image-20200723174802069.png" alt="image-20200723174802069"></p>
+<p><img src="/2020/07/23/sql%E6%B3%A8%E5%85%A5/image-20200723174904879.png" alt="image-20200723174904879"></p>
+<p>可以看出当前数据库名为<strong>security</strong>，后面可以用别的查询语法查出想要的数据</p>
+</li>
+<li><p>注入防御</p>
+<ul>
+<li>基本上大家都知道 <strong>采用sql语句预编译和绑定变量，是防御sql注入的最佳方法</strong>。但是其中的深层次原因就不见得都理解了。</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">String sql = "<span class="keyword">select</span> <span class="keyword">id</span>, <span class="keyword">no</span> <span class="keyword">from</span> <span class="keyword">user</span> <span class="keyword">where</span> <span class="keyword">id</span>=?<span class="string">";</span></span><br><span class="line"><span class="string">PreparedStatement ps = conn.prepareStatement(sql);</span></span><br><span class="line"><span class="string">ps.setInt(1, id);</span></span><br><span class="line"><span class="string">ps.executeQuery();</span></span><br></pre></td></tr></table></figure>
+
+<p>​            如上所示，就是典型的采用 sql语句预编译和绑定变量 。为什么这样就可以防止sql 注入呢？</p>
+<p>​            其原因就是：采用了PreparedStatement，就会将sql语句：”select id, no from user where id=?” 预先编译好。也就是SQL引擎会预先进行语            法分析，产生语法树，生成执行计划，也就是说，后面你输入的参数，无论你输入的是什么，都不会影响该sql语句的语法结构。因为语            法分析已经完成了，而语法分析主要是分析sql命令，比如 select ,from ,where ,and, or ,order by 等等。所以即使你后面输入了这些sql命            令，也不会被当成sql命令来执行了，因为这些sql命令的执行， 必须先的通过语法分析，生成执行计划，既然语法分析已经完成，已经预            编译过了，那么后面输入的参数，是绝对不可能作为sql命令来执行的，<strong>只会被当做字符串字面值参数</strong>。所以sql语句预编译可以防御sql注            入。</p>
+<ul>
+<li><p>但是不是所有场景都能够采用 sql语句预编译，有一些场景必须采用字符串拼接的方式，此时，我们严格检查参数的数据类型，还可以使用一些安全函数，来防止sql注入。</p>
+<p>比如 String sql = “select id,no from user where id=” + id;</p>
+<p>在接收到用户输入的参数时，我们就严格检查 id，只能是int型。复杂情况可以使用正则表达式来判断。这样也是可以防止sql注入的。</p>
+<p>安全函数的使用，比如：</p>
+</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">MySQLCodec codec = new MySQLCodec(Mode.STANDARD);</span><br><span class="line">name = ESAPI.encoder().encodeForSQL(codec, name);</span><br><span class="line">String sql = "<span class="keyword">select</span> <span class="keyword">id</span>,<span class="keyword">no</span> <span class="keyword">from</span> <span class="keyword">user</span> <span class="keyword">where</span> <span class="keyword">name</span>=<span class="string">" + name;</span></span><br></pre></td></tr></table></figure>
+
+<p>​        ESAPI.encoder().encodeForSQL(codec, name)</p>
+<p>​        该函数会将 name 中包含的一些特殊字符进行编码，这样 sql 引擎就不会将name中的字符串当成sql命令来进行语法分析了。</p>
+<p>​        注：</p>
+<p>​        实际项目中，一般我们都是采用各种的框架，比如ibatis, hibernate,mybatis等等。他们一般也默认就是sql预编译的。对于ibatis/mybatis，如果        使用的是 #{name}形式的，那么就是sql预编译，使用 ${name} 就不是sql预编译的。</p>
+</li>
+</ol>
+<h3 id="POST型基于错误"><a href="#POST型基于错误" class="headerlink" title="POST型基于错误"></a>POST型基于错误</h3><p>post型注入流程和get型类似，不同之处get型是在url中测试，post型在表单中提交测试。下面通过案例来演示</p>
+<ol>
+<li><p>判断是否存在注入</p>
+<p>先输入正确账号和密码，再输入错误的密码，看页面的反应</p>
+</li>
+</ol>
+<p>   <img src="/2020/07/23/sql%E6%B3%A8%E5%85%A5/image-20200723181549775.png" alt="image-20200723181549775"></p>
+<p>   上面是正确页面</p>
+<p>   下面是错误页面</p>
+<p>   <img src="/2020/07/23/sql%E6%B3%A8%E5%85%A5/image-20200723181634177.png" alt="image-20200723181634177"></p>
+<p>   输入正确的账号，在账号后面加个单引号 <strong>‘</strong> 看下效果 ，报错</p>
+<p>   <img src="/2020/07/23/sql%E6%B3%A8%E5%85%A5/image-20200723181903984.png" alt="image-20200723181903984"></p>
+<p>​        后面加上注释看效果，正常显示，通过以下测试发现存在注入，（以下测试都要加注释符合，下面有张截图忘记加了）</p>
+<p>​        <img src="/2020/07/23/sql%E6%B3%A8%E5%85%A5/image-20200723182048772.png" alt="image-20200723182048772" style="zoom: 67%;"></p>
+<p>​        <img src="/2020/07/23/sql%E6%B3%A8%E5%85%A5/image-20200723182358278.png" alt="image-20200723182358278" style="zoom: 80%;"></p>
+<p>​        <img src="/2020/07/23/sql%E6%B3%A8%E5%85%A5/image-20200723182805120.png" alt="image-20200723182805120" style="zoom:80%;"></p>
+<ol start="2">
+<li><p>注入利用</p>
+</li>
+<li><p>注入防御</p>
+<p>下面的操作和GET型的测试方式一样，下面就不做演示了</p>
+</li>
+</ol>
+<h3 id="布尔盲注"><a href="#布尔盲注" class="headerlink" title="布尔盲注"></a>布尔盲注</h3><p>布尔盲注流程和上面测试流程类型，需要借助一些函数来判断。</p>
+<ol>
+<li><p>判断是否存在注入</p>
+<p>同上测试步骤，通过设置改变id值观察页面变化，通过单引号，双引号，括号，注释符来判断</p>
+<p><img src="/2020/07/23/sql%E6%B3%A8%E5%85%A5/image-20200723184016495.png" alt="image-20200723184016495"></p>
+<p><img src="/2020/07/23/sql%E6%B3%A8%E5%85%A5/image-20200723184113954.png" alt="image-20200723184113954"></p>
+<p><img src="/2020/07/23/sql%E6%B3%A8%E5%85%A5/image-20200723184136612.png" alt="image-20200723184136612"></p>
+<p><img src="/2020/07/23/sql%E6%B3%A8%E5%85%A5/image-20200723184323061.png" alt="image-20200723184323061"></p>
+<p><img src="/2020/07/23/sql%E6%B3%A8%E5%85%A5/image-20200723184443111.png" alt="image-20200723184443111"></p>
+<p><img src="/2020/07/23/sql%E6%B3%A8%E5%85%A5/image-20200723184642503.png" alt="image-20200723184642503"></p>
+<p><img src="/2020/07/23/sql%E6%B3%A8%E5%85%A5/image-20200723184711358.png" alt="image-20200723184711358"></p>
+<p>可以看出来存在注入</p>
+</li>
+<li><p>注入利用</p>
+<p>上面只有登录成功或者错误两种情况，没有显示用户信息，所以之只能通过布尔来判断。可以用以下函数来测试</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">left(database(),1)='s'    		  			//left()函数:left(a,b)从左侧截取a的前b位正确返回1,错误返回0</span><br><span class="line"><span class="keyword">select</span> <span class="keyword">user</span>() regexp <span class="string">'r'</span>   					//regexp函数:EGEXP检查总是返回<span class="number">0</span>（没有匹配）或<span class="number">1</span>（匹配）</span><br><span class="line"><span class="keyword">select</span> <span class="keyword">user</span>() <span class="keyword">like</span> <span class="string">'ro%'</span>					//<span class="keyword">like</span>函数:和<span class="keyword">left</span>函数相似，前面多加个%号</span><br><span class="line"><span class="keyword">substr</span>(a,b,c) <span class="keyword">select</span> <span class="keyword">substr</span>() xxx       	//<span class="keyword">substr</span>函数:从位置b开始,截取a字符串c位长度</span><br><span class="line"><span class="keyword">ascii</span>()               						//将某个字符转化为<span class="keyword">ascii</span>值</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2020/07/23/sql%E6%B3%A8%E5%85%A5/image-20200723190016856.png" alt="image-20200723190016856"></p>
+<p>从上图可以判断当前数据库的搜字母是’s’，前面已经测过当前数据库名为’security’,可以用上面的函数来测试，得出数据库的信息。这里就不做演示了</p>
+</li>
+</ol>
+<h3 id="时间盲注"><a href="#时间盲注" class="headerlink" title="时间盲注"></a>时间盲注</h3><p>时间盲注需要借助<strong>if</strong>函数和<strong>sleep</strong>函数来判断</p>
+<ol>
+<li>判断是否存在注入</li>
+</ol>
+<p>​           <img src="/2020/07/23/sql%E6%B3%A8%E5%85%A5/image-20200723190800705.png" alt="image-20200723190800705" style="zoom: 50%;">   </p>
+<p>​            发现浏览器刷新时间为4秒，判断存在注入。</p>
+<ol start="2">
+<li><p>注入利用</p>
+<p>通过上面那些函数相结合来判断数据信息</p>
+<p><img src="/2020/07/23/sql%E6%B3%A8%E5%85%A5/image-20200723191715238.png" alt="image-20200723191715238"></p>
+<p>通过测试可以得出数据库信息</p>
+</li>
+</ol>
+<h3 id="报错注入"><a href="#报错注入" class="headerlink" title="报错注入"></a>报错注入</h3><ol>
+<li><p>注入利用</p>
+<p>报错注入可以通过<strong>updatexml(1,concat(0x7e,查询语句),1)</strong>来测试</p>
+<img src="/2020/07/23/sql%E6%B3%A8%E5%85%A5/image-20200723210255283.png" alt="image-20200723210255283" style="zoom: 67%;">
+
+</li>
+</ol>
 
             
             <p class="more">
-                <a href="http://yoursite.com/2020/07/23/myql/">阅读剩下更多</a>
+                <a href="https://zhuiborh.github.io/2020/07/23/sql%E6%B3%A8%E5%85%A5/">阅读剩下更多</a>
             </p>
         </div>
         <div class="post-thumbnail" data-img="">
-            <a href="http://yoursite.com/2020/07/23/myql/" title="mysql">
+            <a href="https://zhuiborh.github.io/2020/07/23/sql%E6%B3%A8%E5%85%A5/" title="SQL注入">
                 
                     <img class="thumbnail" src="/img/default.png" data-echo="/img/thumbnail/3.jpg" alt="默认配图" >
                 
@@ -402,12 +382,12 @@ var _hmt = _hmt || [];
 <ul class="widget-bd">
     
     <li>
-        <a href="/categories/Web%E6%8A%80%E6%9C%AF/">Web技术</a>
+        <a href="/categories/Web%E5%AE%89%E5%85%A8/">Web安全</a>
         <span class="badge">(1)</span>
     </li>
     
     <li>
-        <a href="/categories/Web%E6%8A%80%E6%9C%AF/%E7%94%9F%E6%B4%BB%E7%90%90%E4%BA%8B/">生活琐事</a>
+        <a href="/categories/Web%E5%AE%89%E5%85%A8/%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/">学习记录</a>
         <span class="badge">(1)</span>
     </li>
     
@@ -460,7 +440,7 @@ var _hmt = _hmt || [];
     <!--博客js脚本 -->
     <!-- 这里放网站js脚本 -->
 
-<script src="/js/main.js?v=1595492878177.js"></script>
+<script src="/js/main.js?v=1595511784817.js"></script>
 
 </body>
 </html>
