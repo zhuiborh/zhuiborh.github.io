@@ -218,7 +218,7 @@ JELON = deepCopy(JELON, {
   },
   startSearch: function () {
     if (document.getElementById('searchKeyword').value) {
-      document.getElementById('searchKeywordHidden').value = 'site:zhuiborh.github.io' + document.getElementById('searchKeyword').value;
+      document.getElementById('searchKeywordHidden').value = 'site:zhuiborh.github.io ' + document.getElementById('searchKeyword').value;
       document.getElementById('searchForm').submit();
     }
   }
