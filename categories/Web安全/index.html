@@ -313,10 +313,74 @@ var _hmt = _hmt || [];
 </li>
 </ol>
 <h3 id="报错注入"><a href="#报错注入" class="headerlink" title="报错注入"></a>报错注入</h3><ol>
+<li><p>判断是否存在注入</p>
+<p>过程省略</p>
+</li>
 <li><p>注入利用</p>
 <p>报错注入可以通过<strong>updatexml(1,concat(0x7e,查询语句),1)</strong>来测试</p>
 <img src="/2020/07/23/sql%E6%B3%A8%E5%85%A5/image-20200723210255283.png" alt="image-20200723210255283" style="zoom: 67%;">
 
+</li>
+</ol>
+<h3 id="User-Agent报错注入"><a href="#User-Agent报错注入" class="headerlink" title="User-Agent报错注入"></a>User-Agent报错注入</h3><ol>
+<li><p>判断是否存在注入</p>
+<p>看页面是否显示User-Agent的相关内容，再借助工具测试更改User-Agent中的内容，测试是否存在报错。</p>
+<p>下面是登陆成功显示的画面，发现有User-Agent内容，更改其值发现，页面变化且出现报错信息，通过闭合发现有报错注入</p>
+<p><img src="/2020/07/23/sql%E6%B3%A8%E5%85%A5/image-20200724072847450.png" alt="image-20200724072847450"></p>
+<p>改变User Agent值</p>
+<p><img src="/2020/07/23/sql%E6%B3%A8%E5%85%A5/image-20200724073437274.png" alt="image-20200724073437274"></p>
+<p><img src="/2020/07/23/sql%E6%B3%A8%E5%85%A5/image-20200724073352058.png" alt="image-20200724073352058"></p>
+<p>用引号闭合出现报错信息</p>
+<p><img src="/2020/07/23/sql%E6%B3%A8%E5%85%A5/image-20200724073552287.png" alt="image-20200724073552287"></p>
+<p><img src="/2020/07/23/sql%E6%B3%A8%E5%85%A5/image-20200724073640115.png" alt="image-20200724073640115"></p>
+</li>
+</ol>
+<ol start="2">
+<li><p>注入利用</p>
+<p>通过源码发现，可以用 <strong>‘ or updatexml(2,concat(0x7e,database()),2) or ‘</strong> 标签必合来获取信息。</p>
+<p><img src="/2020/07/23/sql%E6%B3%A8%E5%85%A5/image-20200724073940584.png" alt="image-20200724073940584"></p>
+<p> 下面只需把<strong>concat</strong>中的查询语句替换就可得到想要的信息</p>
+<p><img src="/2020/07/23/sql%E6%B3%A8%E5%85%A5/image-20200724075602389.png" alt="image-20200724075602389"></p>
+<p><img src="/2020/07/23/sql%E6%B3%A8%E5%85%A5/image-20200724075542736.png" alt="image-20200724075542736"></p>
+</li>
+</ol>
+<h3 id="Referer注入"><a href="#Referer注入" class="headerlink" title="Referer注入"></a>Referer注入</h3><ol>
+<li><p>判断是否存在注入</p>
+<p>和上面User Agent测试一样发现存在注入</p>
+<p><img src="/2020/07/23/sql%E6%B3%A8%E5%85%A5/image-20200724075127210.png" alt="image-20200724075127210"></p>
+<p>改变Referer值</p>
+<p><img src="/2020/07/23/sql%E6%B3%A8%E5%85%A5/image-20200724075206108.png" alt="image-20200724075206108"></p>
+<p><img src="/2020/07/23/sql%E6%B3%A8%E5%85%A5/image-20200724075238345.png" alt="image-20200724075238345"></p>
+</li>
+<li><p>注入利用</p>
+<p>通过源码发现，可以用 <strong>‘ or updatexml(2,concat(0x7e,database()),2) or ‘</strong> 标签必合来获取信息</p>
+<p><img src="/2020/07/23/sql%E6%B3%A8%E5%85%A5/image-20200724075411197.png" alt="image-20200724075411197"></p>
+<p><img src="/2020/07/23/sql%E6%B3%A8%E5%85%A5/image-20200724075428597.png" alt="image-20200724075428597"></p>
+<p>下面只需把<strong>concat</strong>中的查询语句替换就可得到想要的信息</p>
+</li>
+</ol>
+<h3 id="cookie-注入"><a href="#cookie-注入" class="headerlink" title="cookie 注入"></a>cookie 注入</h3><ol>
+<li><p>判断是否存在注入</p>
+<p>发现页面显示一堆数据，测试发现通过改变cookie值页面内容会改变</p>
+<p>登录成功</p>
+<p><img src="/2020/07/23/sql%E6%B3%A8%E5%85%A5/image-20200724080440812.png" alt="image-20200724080440812"></p>
+<p>更改coolie报错</p>
+<p><img src="/2020/07/23/sql%E6%B3%A8%E5%85%A5/image-20200724080832626.png" alt="image-20200724080832626"></p>
+</li>
+</ol>
+<p>   <img src="/2020/07/23/sql%E6%B3%A8%E5%85%A5/image-20200724080802106.png" alt="image-20200724080802106"></p>
+<p>   闭合语句，判断and 1，正确显示</p>
+<p>   <img src="/2020/07/23/sql%E6%B3%A8%E5%85%A5/image-20200724081018155.png" alt="image-20200724081018155"></p>
+<p>   闭合语句，判断and 0，报错</p>
+<p>   <img src="/2020/07/23/sql%E6%B3%A8%E5%85%A5/image-20200724081057400.png" alt="image-20200724081057400"></p>
+<p>   测试存在注入</p>
+<ol start="2">
+<li><p>注入利用</p>
+<p>和前面类似，只需输入查询语句即可</p>
+<p>通过union查询</p>
+<p><img src="/2020/07/23/sql%E6%B3%A8%E5%85%A5/image-20200724081451059.png" alt="image-20200724081451059"></p>
+<p>通过报错查询</p>
+<p><img src="/2020/07/23/sql%E6%B3%A8%E5%85%A5/image-20200724081622842.png" alt="image-20200724081622842"></p>
 </li>
 </ol>
 
@@ -439,7 +503,7 @@ var _hmt = _hmt || [];
     <!--博客js脚本 -->
     <!-- 这里放网站js脚本 -->
 
-<script src="/js/main.js?v=1595512911910.js"></script>
+<script src="/js/main.js?v=1596121520410.js"></script>
 
 </body>
 </html>
